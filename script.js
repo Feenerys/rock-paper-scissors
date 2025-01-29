@@ -20,13 +20,23 @@ function getHumanChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-function playRound(humanChoice, ComputerChoice) {
+function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase()
-    console.log("You lose! Paper beats Rock")
-    computerScore++
+    if (humanChoice === computerChoice) {
+        console.log("Draw!")
+    } else if ((humanChoice === "rock" && computerChoice === "paper") ||
+                (humanChoice === "paper" && computerChoice === "scissors") ||
+                (humanChoice === "scissors" && computerChoice === "rock")) {
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+        computerScore++;
+    } else {
+        console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+        humanScore++;
+    }
 }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
+
