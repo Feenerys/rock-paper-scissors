@@ -27,16 +27,19 @@ function playRound(humanChoice, computerChoice) {
     } else if ((humanChoice === "rock" && computerChoice === "paper") ||
                 (humanChoice === "paper" && computerChoice === "scissors") ||
                 (humanChoice === "scissors" && computerChoice === "rock")) {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
         computerScore++;
     } else {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`)
+        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
         humanScore++;
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+    for (i = 0;i < 5;i++){
+        playRound(getHumanChoice(), getComputerChoice());
+    }
 
-playRound(humanSelection, computerSelection);
+}
 
+playGame();
