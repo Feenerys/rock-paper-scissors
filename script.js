@@ -13,7 +13,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     // ask user a choice of rock, paper, or scissors and returns it
-    let choice = +prompt("Choose one by typing 1, 2, or 3:\n1. Rock\n2. Paper\n3. Scissors\n");
+    let choice = prompt("Choose Rock, Paper, or, Scissors:");
     return choice;
 }
 
