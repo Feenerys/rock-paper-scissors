@@ -19,3 +19,14 @@ function getHumanChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
+
+function playRound(humanChoice, ComputerChoice) {
+    humanChoice = humanChoice.toLowerCase()
+    console.log("You lose! Paper beats Rock")
+    computerScore++
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
