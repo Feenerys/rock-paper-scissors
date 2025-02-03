@@ -23,23 +23,22 @@ let computerScore = 0;
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase()
     if (humanChoice === computerChoice) {
-        console.log("Draw!")
+        results.textContent = "Draw!"
     } else if ((humanChoice === "rock" && computerChoice === "paper") ||
                 (humanChoice === "paper" && computerChoice === "scissors") ||
                 (humanChoice === "scissors" && computerChoice === "rock")) {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        results.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
         computerScore++;
     } else {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        results.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
         humanScore++;
     }
 }
 
-function playGame() {
-    for (i = 0;i < 5;i++){
-        playRound(getHumanChoice(), getComputerChoice());
-    }
-
+function playGame(humanChoice) {
+    
+    playRound(humanChoice, getComputerChoice());
+    
     if (humanScore === computerScore) {
         console.log(`Its a draw!\nPlayer score: ${humanScore}\nComputer score: ${computerScore}`)
     } else if (humanScore > computerScore) {
@@ -49,4 +48,18 @@ function playGame() {
     }
 }
 
-playGame();
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+
+const results = document.querySelector("div");
+
+const [ROCK,PAPER,SCISSORS] = ["rock", "paper", "scissors"];
+
+rockButton.addEventListener('click', () => playGame(ROCK));
+paperButton.addEventListener('click', () => playGame(PAPER));
+scissorsButton.addEventListener('click', () => playGame(SCISSORS));
+
+
+
+
