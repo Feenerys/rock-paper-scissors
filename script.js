@@ -39,12 +39,17 @@ function playGame(humanChoice) {
     
     playRound(humanChoice, getComputerChoice());
     
-    if (humanScore === computerScore) {
-        console.log(`Its a draw!\nPlayer score: ${humanScore}\nComputer score: ${computerScore}`)
-    } else if (humanScore > computerScore) {
-        console.log(`Congrats you win!\nPlayer score: ${humanScore}\nComputer score: ${computerScore}`)
-    } else {
-        console.log(`You lose!\nPlayer score: ${humanScore}\nComputer score: ${computerScore}`)
+    if (humanScore === 5 || computerScore === 5) {
+        if (humanScore === computerScore) {
+            results.textContent += `\n\nIts a draw!\nPlayer score: ${humanScore}\nComputer score: ${computerScore}`;
+        } else if (humanScore > computerScore) {
+            results.textContent += `\n\nCongrats you win!\nPlayer score: ${humanScore}\nComputer score: ${computerScore}`;
+        } else {
+            results.textContent += `\n\nYou lose!\nPlayer score: ${humanScore}\nComputer score: ${computerScore}`;
+        }
+
+        humanScore = 0;
+        computerScore = 0;
     }
 }
 
